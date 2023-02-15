@@ -1,0 +1,32 @@
+body {
+    background-color: rgb(229, 231, 235);
+    font-family: system-ui;
+    text-align: center;
+}
+
+h1 {
+    padding-top: 30px;
+    padding-bottom: 20px;
+}
+
+button {
+    border: none;
+    background-color: rgb(34, 197, 94);
+    color: white;
+    font-weight: bold;
+    padding: 10px 20px;         /* 10px from top and bottom, 20px from left and right */
+    text-transform: uppercase;
+    cursor: pointer;
+}
+
+li {
+    display: inline;        /* by setting the display property "inline" (default was block), it will allow the items in the list element to be displayed side by side */
+    color: gray;
+    padding-left: 20px;
+    padding-right: 20px;
+}
+
+ul {
+    list-style-type: none;
+    padding: 20px 0;
+}

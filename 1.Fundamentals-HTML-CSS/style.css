@@ -1,0 +1,162 @@
+/*
+CSS is a Web standard and it stands for Cascading Style Sheets.
+
+p {
+  color: red;
+}
+
+This CSS rule sets all paragraphs to be displayed in red instead of black, the default color.
+A CSS rule set has one part called the SELECTOR, and the other part called the DECLARATION BLOCK.
+The declaration contains various declarations, each composed of a property, and a value.
+In this example, `p` is the selector. It applies the following rules to all elements using the `p` tag on the page.
+And `color: red;` is the only declaration contained in the declaration block.
+*/
+
+p {
+    color: yellowgreen;
+  }
+
+/*
+Multiple CSS  can be listed one after the other:
+p {
+  color: red;
+}
+
+a {
+  color: blue;
+}
+
+A selector can target one or more items:
+p, a {
+  color: red;
+}
+
+
+Spacing is meaningless in CSS. This means you could write the above CSS as:
+p,a {
+  color: red;}
+
+p,a {              color: red;
+        }
+
+
+It’s important that each declaration ends with a semicolon `;`
+Otherwise, you might get some headaches as the browser is not able to interpret the CSS.
+*/
+
+
+/* We can select elements with a class using this syntax: .class {} */
+.dog-name {
+  color: orangered;
+}
+
+
+/* To select elements with a specific id, we can use this syntax: #id {} */
+#dog-name {
+  color: purple;
+}
+
+/*
+There is one big difference between those two selectors.
+Inside an HTML document, you can repeat the same `class` value across multiple elements, but you can only use an `id` once. 
+Using classes you can select an element with 2 or more specific class names, something not possible using ids.
+*/
+
+
+/* You can target an element that has 2 (or more) classes together by combining the class names separated with a dot, without spaces. */
+.dog-name.roger {
+  color: yellow;
+}
+
+
+/* In the same way, you can combine a class and an id. */
+.dog-name#roger {
+  color: blue;
+}
+
+
+/*
+You can create a more specific selector by combining multiple items to follow the document tree structure. 
+For example, if you have a span tag nested inside a p tag, you can target that one without applying the style to a span tag not included in a p tag.
+*/
+p span {
+  color: pink;
+}
+/* See how we used a space between the two tokens p and span. */
+
+
+
+/*To make the dependency strict to the first level, you can use the > symbol between the two tokens:
+In this case, if a span is not a first children of the p element, it's not going to have the new color applied. */
+p > span {
+  color: yellow;
+}
+
+
+/* Adjacent sibling selectors let us style an element only if preceded by a specific element. We do so using the + operator:
+This will assign the color orange to all span elements preceded by a p element: */
+p + span {
+  color: orange;
+}
+
+
+
+/* Pseudo-elements are used to style a specific part of an element. They start with a double colon  :: */
+p::first-line {
+  font-size: 2rem;
+}
+
+p::first-letter {
+  font-weight: bolder;
+}
+
+
+p::before {
+  content: url(/myimage.png);
+}
+
+.myElement::before {
+  content: 'Hey Hey!';
+}
+
+
+
+/* TYPOGRAPHY */
+body {
+  font-family: Georgia, serif;
+}
+
+
+p {
+  font-size: 20px;
+}
+
+
+p {
+  line-height: 0.9rem;
+}
+
+
+p {
+  text-align: center;
+}
+
+
+/*
+`font-weight` sets the thickness of a font. You can use those predefined values:
+  - normal
+  - bold
+  - bolder (which makes the font bolder relative to the parent element)
+  - lighter (which makes the font lighter relative to the parent element)
+
+Or you can use the numeric keywords from 100 to 900 where 100 is the lightest font, and 900 is the boldest:
+  - 100
+  - 200
+  - 300
+  - 400, equivalent to `normal`
+  - 500
+  - 600
+  - 700 equivalent to `bold`
+  - 800
+  - 900
+*/

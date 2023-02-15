@@ -1,0 +1,26 @@
+body {
+    font-family: system-ui;
+}
+
+p {
+    border: 1px solid;
+    padding: 20px;
+    margin: 0;
+    text-align: center;
+    background-color: thistle;
+}
+
+div {
+    display: flex;
+    /* default behavior of flexbox is ROW. To change it to column -> felx-direction: column; */
+    /* to make it reverse -> flex-direction: column-reverse; */
+    flex-direction: row-reverse;            /* when you make it row-reverse, it pushes the items to the right corner of the container. To stop that: */
+    justify-content: start;         /* OR justify-content: left; */
+    justify-content: center;      /* NOTE: both start and center have equal power on the elements. However, center was applied the last, it will be remained as property */
+    justify-content: space-evenly;          /* OR justify-content: space-between;     OR justify-content: space-around; */
+    height: 600px;          /* Elements fill the 600px height which is the height of the container. */
+    align-items: flex-start;            /* flex-start makes the items aligned at the start and just fill the space they need */
+    /* flex-end aligns the items at the end of the container. flex-center centers them vertically as per the height of the container. */
+    flex-wrap: wrap;
+    /* If the screen is not large enough to display all the items in one line, and items disappear from the page, this will push the overflowing items one below line. */
+}

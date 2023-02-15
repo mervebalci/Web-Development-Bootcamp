@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+
+<html>
+    <head>
+        <!-- The `head` tag contains special tags that define the document properties.
+            It's always written before the `body` tag, right after the opening `html` tag.
+            We never use attributes on this tag. And we don't write content in it. It's just a container for other tags.
+            Inside it we can have a wide variety of tags, depending on what you need to do:
+            - `title`
+            - `script`
+            - `link`
+            - `style`
+            - `meta` -->
+
+
+        <!-- The title tag determines the page title. The title is displayed in the browser. -->
+        <title>The page title</title>
+
+
+        <!-- This tag is used to add JavaScript to the page.
+            You can include it inline, using an opening tag, the JavaScript code, and then the closing tag: -->
+        <script>
+            alert('This is an alert box!')
+        </script>
+
+        <script src="file.js"></script>
+
+        <!-- <script src="https://server.com/file.js"></script> -->
+
+
+        <!-- The link tag is mainly used to link an external CSS file. -->
+        <link href="file.css" rel="stylesheet" />
+        
+        <!-- We can also link to resources other than stylesheets.
+            For example, we can associate a favicon, the icon displayed in the tab of your browser: -->
+        <link rel="icon" type="image/png" sizes="32x32" href="/assets/favicon-32x32.png" />
+
+
+        <!-- The style tag can be used to add CSS styles to the document, rather than loading an external stylesheet. -->
+        <style>
+            p {
+              color: red;
+            }
+        </style>
+
+        <!-- OR you can put it in a separate style.css file and then load it in the HTML head: -->
+        <link href="style.css" rel="stylesheet" />
+
+        <!-- This is more common when you have lots of CSS, which is what happens normally.
+            CSS in the `head` of the HTML document works until a certain level, then it’s too painful to manage.
+            Another way, useful for “quick fixes”, is to use the `style` attribute on an HTML element: -->
+        <p style="color: yellowgreen">color test</p>
+
+
+        <!-- Meta tags perform a variety of tasks. They are self-closing tags. 
+            The most basic one is the `description` meta tag: -->
+        <meta name="description" content="A nice page" />
+
+        <!-- The charset meta tag is used to set the page character encoding, 
+            which in the western world is typically set to utf-8 (but you might have another encoding in your country): -->
+        <meta charset="utf-8" />
+        <!-- There are many other meta tags, that provide other kinds of functionality, like social media cards, 
+            information for search engines, and more.  -->
+    </head>
+
+
+
+    <body>
+        <!-- Before looking at tags, we need to separate them into 2 categories: block elements and inline elements.
+            Block elements (`p`, `div`, heading elements, lists and list items, and others) when positioned on the page 
+            do not allow other elements to be visualized next to them.
+            Inline elements instead can sit next to other inline elements.
+            Another difference is that inline elements can be contained in block elements. The reverse is not true. -->
+        
+            <!-- The p tag defines a paragraph of text, and it's a block element: -->
+        <p>A paragraph of text</p>
+
+        <!-- Inside a `p` tag, we can add any inline element we like, like `span`. The `span` tag is an inline tag: -->
+        <p>A part of the text <span>and here another part</span></p>
+        <!-- We cannot add other block elements into a `p` or `span` tag. We cannot nest a `p` element into another one, as `p` is a block tag. -->
+
+
+        <!-- All headings are block elements. They cannot contain other tags, except tags that identify text such as a span or strong. -->
+        <h1>h1 heading size</h1>
+        <h2>h2 heading size</h2>
+        <h3>h3 heading size</h3>
+        <h4>h4 heading size</h4>
+        <h5>h5 heading size</h5>
+        <h6>h6 heading size</h6>
+        <p>Paragraph size</p>
+
+
+        <!-- Unordered lists are created using the ul tag. Each item in the list is created with the li tag: -->
+        <ul>
+            <li>First item</li>
+            <li>Second item</li>
+            <li>Third item</li>
+        </ul>
+
+        <!-- Ordered lists are similar, just made with the ol tag: -->
+        <ol>
+            <li>First</li>
+            <li>Second</li>
+            <li>Third</li>
+        </ol>
+    </body>
+
+
+
+    <body>
+        <!-- The opening tag of an element can have special snippets of information we can attach, called attributes.
+            Attributes have the `key="value"` syntax: -->
+        <p class="a-class">A paragraph of text</p>
+        <p class="a-class" id="an-id">A paragraph of text</p>
+
+        <!-- Some attributes are boolean, meaning you only need the key, for example, see the defer attribute on the script tag: -->
+        <script defer src="file.js"></script>
+
+        <!-- The `class` and `id` attributes are two of the most common you will find used.
+            They have a special meaning, and they are useful both in CSS and JavaScript.
+            The difference between the two is that an `id` is unique in the context of a web page; it cannot be duplicated.
+            Classes, on the other hand, can appear multiple times on multiple elements.
+            Plus, an `id` is just one value. `class` can hold multiple values, separated by a space: -->
+        <p class="a-class another-class">
+            A paragraph of text
+        </p>
+        <!-- It's common to use the dash - to separate words in a class value. -->
+
+        <!-- We can select elements with a class using this syntax: .class {} -->
+        <p class="dog-name">Roger</p>
+
+        <!-- To select elements with a specific id, we can use this syntax: #id {} -->
+        <p id="dog-name">Roger</p>
+
+        <!-- You can target an element that has 2 (or more) classes together by combining the class names separated with a dot, without spaces. -->
+        <p class="dog-name roger">Roger</p>
+
+        <!-- In the same way, you can combine a class and an id. -->
+        <p class="dog-name" id="roger">Roger</p>
+    </body>
+
+
+
+    <body>
+        <!-- You can create a more specific selector by combining multiple items to follow the document tree structure.
+            For example, if you have a span tag nested inside a p tag, you can target that one without applying the style to a span tag not included in a p tag: -->
+        <span> Hello! </span>
+        <p>
+            My dog's name is:
+            <span class="dog-name"> Roger </span>
+        </p>
+        <!-- This works even if the element on the right is multiple levels deep. -->
+
+
+        <!-- To make the dependency strict to the first level, you can use the > symbol between the two tokens: 
+            In this case, if a `span` is not a first children of the `p` element, it's not going to have the new color applied.
+            Direct children will have the style applied: -->
+        <p>
+            <span> This is yellow </span>
+            <strong>
+                <span> This is not yellow </span>
+            </strong>
+        </p>
+
+
+        <!-- Adjacent sibling selectors let us style an element only if preceded by a specific element. We do so using the + operator:
+            This will assign the color orange to all span elements preceded by a p element: -->
+        <p>This is a paragraph</p>
+        <span>This is an orange span</span> <br>
+    </body>
+
+
+
+    <body>
+        <!-- Links are defined using the a tag. The link destination is set via its href attribute. -->
+        <a href="https://flaviocopes.com">
+            click here
+        </a> <br>
+
+        <!-- Between the starting and closing tags, we have the link text.
+            The above example is an absolute URL. Links also work with relative URLs: -->
+        <a href="/test">click here</a>
+
+        <!-- In this case, when clicking the link the user is moved to the `/test` URL on the current origin. 
+            Be careful with the `/` character. If omitted, instead of starting from the origin, 
+            the browser will just add the `test` string to the current URL.
+            
+            For example, suppose I’m visiting the page `https://flaviocopes.com/axios/` 
+            and I have these 2 links (they don’t exist, it’s just an example):
+            
+            - the link `/test` does have a `/` prepending `test`, clicking brings me to `https://flaviocopes.com/test`.
+            The `/` means “start from the root”
+            - the link `test` does not have a `/` prepending `test`, so once clicked brings me to `https://flaviocopes.com/axios/test`
+            
+            Link tags can include other things inside them, not just text.
+            For example, images can be links, too, so you click an image and you open a new page. -->
+    </body>
+
+
+
+    <body>
+        <!-- Images can be displayed using the `img` tag. This tag accepts a `src` attribute, which we use to set the image source: -->
+        <img src="image.png" />
+
+        <!-- We can use a wide set of image formats on the Web. The most common ones are PNG, JPEG, GIF, SVG, and more recently WebP.
+            The HTML standard requires an `alt` attribute to be present, to describe the image. 
+            This is used by screen readers and also by search engine bots: -->
+        <img src="dog.png" alt="A picture of a dog" />
+
+        <!-- You can set the width and height attributes to set the space that the element will take
+            so that the browser can account for it and does not change the layout when it's fully loaded.
+            It takes a numeric value, expressed in pixels. -->
+        <img src="dog.png" alt="A picture of a dog" width="350" height="200" />
+    </body>
+
+
+
+    <body>
+        <!-- HTML provides us with some tags we can use to group other tags together.
+            Suppose you want to group together a `<p></p>` and an `<img />`.
+            You can use `<div></div>`. -->
+        <div>
+            <p>hello!</p>
+            <img src="test.jpg" alt="an image" />
+        </div>
+
+        <!-- This is probably the most used tag. Other container tags exist.
+            We have `section`, `article`, `header`, `aside`, `main`, `footer`, `nav`. Those are called semantic elements.
+            They do not have any special style applied, they all work like `div` but their name has a specific meaning attached. -->
+        <div>
+            <div class="header">
+                <h1>Title</h1>
+            </div>
+            <div class="article">
+                <p>Article content</p>
+            </div>
+            <div class="footer">
+                <p>Some footer info</p>
+            </div>
+        </div>
+
+        <!-- Or you can give those sections more meaning in this way, without using class attributes: -->
+        <section>
+            <header>
+              <h1>Title</h1>
+            </header>
+            <article>
+              <p>Article content</p>
+            </article>
+            <footer>
+              <p>Some footer info</p>
+            </footer>
+        </section>
+    </body>
+</html>

@@ -1,0 +1,23 @@
+In HTML file:
+    <p class="dog-name">Roger</p>
+
+In CSS file:
+    .dog-name {
+      color: yellow;
+    }
+
+OR
+    p {
+      color: red;
+    }
+
+OR
+    p.dog-name {
+      color: red;
+    }
+
+
+Which rule is going to take precedence over the others, and why?
+- SPECIFICITY
+    ** The MORE SPECIFIC rule will win **.
+    If two or more rules have the same specificity, the one that appears LAST wins.
