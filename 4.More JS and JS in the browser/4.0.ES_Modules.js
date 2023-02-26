@@ -34,4 +34,3 @@ import { a, b, c } from 'modulename'
 // In this case of course you can choose to only import one or two:
 import { a } from 'modulename'
 import { b, c } from 'modulename'
-
