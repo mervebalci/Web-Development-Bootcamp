@@ -167,3 +167,29 @@ localStorage.length     //0
 
 // Through the Storage API, you can store a lot more data than you would be able with cookies.
 // The amount of storage available on the Web might differ by storage type (local or session), browser, and device type.
+
+
+
+
+
+/*
+    ##  Using the DevTools console
+The Console can be seen on its own panel, or by pressing `Esc` in the Elements panel, it will show up at the bottom.
+
+The Console serves mainly two purposes: 
+    1. executing custom JavaScript 
+    2. error reporting
+
+At the bottom of the Console, there is a blinking cursor.
+You can type any JavaScript there, and it will be promptly executed.
+For example:    alert("test")
+
+The special identifier $0 allows you to reference the element currently selected in the elements inspector.
+
+Any error, warning, or information that happens while rendering the page, and subsequently executing the JavaScript.
+You can filter those messages by level (Error / Warning / Info) and also filter them by content.
+Those messages can be user-generated in your own JavaScript by using the Console API:
+*/
+console.log("Some info message")
+console.warn("Some warning message")
+console.error("Some error message")
