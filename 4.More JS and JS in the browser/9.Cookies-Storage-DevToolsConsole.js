@@ -92,3 +92,78 @@ const checkCookieExists = (name) => {
 }
   
 checkCookieExists('my-cookie-name')
+
+
+
+
+
+/*
+    ##  STORAGE IN THE BROWSER
+The Web Storage API provides a way to store data in the browser.
+It defines two storage mechanisms that are very important: Session Storage and Local Storage, part of the set of storage options available in browsers.
+Both provide a private area for your data. 
+Any data you store in there cannot be accessed by other websites.
+Both storage methods are only accessible in the browser.
+Data is not sent to the server on each HTTP request like cookies do.
+Both Local and Session Storage are available on the `window` object, so you can access them by referencing `sessionStorage` and `localStorage`.
+Their set of properties and methods is exactly the same.
+
+
+    * The difference between between sessionStorage and localStorage:
+Session Storage maintains the data stored in it just for the duration of the page session.
+If multiple windows or tabs visit the same site, they will have two different Session Storage instances.
+When a tab/window is closed, the Session Storage for that particular tab/window is cleared.
+
+Session storage is meant to allow the scenario of handling different processes happening on the same site independently, 
+something not possible with cookies for example, which are shared in all sessions.
+
+Local Storage instead persists the data until it's explicitly removed, either by you, the site creator or by the user.
+It's never cleaned up automatically, and it's shared in all the sessions that access a site.
+*/
+
+
+//    * Methods that can be used on both sessionStorage and localStorage:
+
+// setItem(key, value)
+// setItem() adds an item to the storage. Accepts a string as a key, and a string as a value:
+localStorage.setItem("username", "efes")
+localStorage.setItem("age", "4")
+
+// If you pass any value that's not a string, it will be converted to a string:
+localStorage.setItem("test", 123)               //stored as the '123' string
+localStorage.setItem("test", { test: 1 })       //stored as "[object Object]"
+
+
+// getItem(key)
+// getItem() is the way to retrieve a string value from the storage, by using the key string that was used to store it:
+localStorage.getItem("username")        // 'efes'
+localStorage.getItem("age")             // '4'
+
+
+// removeItem(key)
+// removeItem() removes the item identified by key from the storage, returning nothing (an undefined value):
+localStorage.removeItem("age")
+
+
+/*
+`key(n)`
+Every item you store has an index number.
+
+It might appear the number is consecutive, so the first time you use setItem(),
+that item can be referenced using key(0), the next with key(1), and so on, but it's not.
+MDN says "The order of keys is user-agent defined, so you should not rely on it".
+If you reference a number that does not point to a storage item, it returns `null`.
+*/
+
+
+// clear()
+// clear() removes everything from the storage object you are manipulating:
+localStorage.setItem("a", "a")
+localStorage.setItem("b", "b")
+localStorage.length     //2
+localStorage.clear()
+localStorage.length     //0
+
+
+// Through the Storage API, you can store a lot more data than you would be able with cookies.
+// The amount of storage available on the Web might differ by storage type (local or session), browser, and device type.
