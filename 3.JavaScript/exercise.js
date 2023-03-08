@@ -263,8 +263,41 @@ mergeAndSort(boncukBirthday, efesBirthday)
 
 
 // 11. Create a simple calculator simulator. Perform the basic operations as functions.
+class Calculator {
+  add(a, b) {
+    if (isNaN(a) || isNaN(b)) {
+      console.log('Please provide two numbers')
+      return null
+    }
+    return a + b
+  }
+  sub(a, b) {
+    if (isNaN(a) || isNaN(b)) {
+      console.log('Please provide two numbers')
+      return null
+  }
+    return a - b
+  }
+}
+  
+const calculator = new Calculator()
+calculator.add(2, 2)
+calculator.sub(5, 1)
 
 
 
 // 12. Write an array contains a list of objects that represent names of people, with first and last name. 
 //     Write a function to reorder the items by last name.
+let invitedList = [
+  {firstName: "Dana", lastName: "Blair"},
+  {firstName: "Yvonne", lastName: "Impala"},
+  {firstName: "Clara", lastName: "Nolan"},
+  {firstName: "Gwen", lastName: "Stacy"},
+  {firstName: "Alison", lastName: "Tucker"}
+]
+
+let reorderedList = invitedList.sort((a, b) => {
+  return a.lastName > b.lastName ? 1:-1
+})
+
+reorderedList
