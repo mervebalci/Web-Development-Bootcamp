@@ -1,0 +1,15 @@
+    ##    What is Node.js in simple terms?   ##
+
+Node.js is a runtime, a tool, that allows us to run JavaScript outside of the browser.
+This means we can use JavaScript to run programs that run on our computers, or on servers.
+
+Node.js also powers most of the JavaScript tooling.
+
+It’s worth noting that in the frontend, inside the browser, the only language we can use natively is JavaScript.
+That’s the only language the browser knows. 
+
+But on the server, we could use any language. Ruby, PHP, Python.. the list is long.
+
+JavaScript however is a great choice because instead of learning multiple languages, 
+you can learn JavaScript and use it everywhere. There’s less context switching.
+You can get very good at JavaScript and be proficient with it in both frontend and backend.
