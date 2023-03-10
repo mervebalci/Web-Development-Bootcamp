@@ -1,0 +1,27 @@
+Apart from the couple dozens of built-in modules, we can use 3rd party modules.
+Node.js modules, also called npm packages.
+Running a single command, using `npm`, we can ask Node.js to fetch packages other developers published.
+
+People work on something, they package it in a specific format 
+and upload it on [GitHub](https://github.com/), a code hosting platform. 
+Then, they set up the package on [https://www.npmjs.com](https://www.npmjs.com/), 
+the site responsible for hosting Node.js packages.
+In any project, you can now use that package through the Node.js utility called `npm`.
+
+For example: npm install my-prime
+Type this inside the terminal
+
+        !!!  npm packages work like Python libraries !!!
+
+
+To require this module into program, create an app.js file and add:
+    const pr = require('my-prime')
+
+    console.log(pr.isPrime(2))
+    console.log(pr.isPrime(4))
+
+Then run it withh node app.js inside the terminal.
+
+If you get an error, there are 2 ways to fix it:
+    1. Rename the app.js file as app.cjs and run node app.cjs inside the terminal (cjs means common js)
+    2. Remove the "type": "module" line from package.json file as that enables ES modules syntax instead of require()

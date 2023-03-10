@@ -1,0 +1,29 @@
+We use Node.js to create APIs, and JSON is a key thing in APIs.
+The name stands for “JavaScript Object Notation” and it’s derived from JavaScript, but it’s not JavaScript.
+
+JSON is a file format that’s used to store and interchange data.
+Data is stored in a set of key-value pairs.
+
+{
+    "name": "Efes",
+    "age": 4
+}
+
+As you see, keys are wrapped in double quotes, a colon separates the key and the value,
+ and the value can be of different types. Key-value sets are separated by a comma.
+
+Spacing (spaces, tabs, new lines) does not matter in a JSON file. 
+The above is equivalent to:
+{"name": "Efes","age": 4}
+
+
+Using JavaScript we can load data from JSON.
+`JSON.parse()` takes a JSON string as its parameter, and returns an object that contains the parsed JSON:
+const cat = `{ "name": "Efes", "age": 4 }`
+const data = JSON.parse(me)
+
+data    =>    Output will be {name: "Efes", age: 4}
+
+
+JSON.stringify() takes a JavaScript object as its parameter, and returns a string that represents it in JSON:
+JSON.stringify(data)    =>    Output will be "{"name":"Efes","age":4}"
