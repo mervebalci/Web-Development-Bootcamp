@@ -20,8 +20,36 @@ To require this module into program, create an app.js file and add:
     console.log(pr.isPrime(2))
     console.log(pr.isPrime(4))
 
-Then run it withh node app.js inside the terminal.
+Then run it with node app.js inside the terminal.
 
 If you get an error, there are 2 ways to fix it:
     1. Rename the app.js file as app.cjs and run node app.cjs inside the terminal (cjs means common js)
-    2. Remove the "type": "module" line from package.json file as that enables ES modules syntax instead of require()
+    2. Use import instead. This file is being treated as an ES module because it has a '.js' file extension
+       Remove the "type": "module" line from package.json file as that enables ES modules syntax instead of require()
+
+Instead of reinventing the wheel all the time, we can use the written code by people and organizations, to make our life easier.
+    npm install <package>
+
+To remove the package: npm uninstall <package>
+
+To update the package for newer version: npm update <package-name>
+
+
+In addition to downloads, `npm` also manages versioning,
+so you can specify any specific version of a package, 
+or require a version higher or lower than what you need.
+
+Many times you’ll find that a library is only compatible with a major release of another library.
+Or a bug in the latest release of a lib, still unfixed, is causing an issue.
+
+Specifying an explicit version of a library also helps to keep everyone on the same exact version of a package,
+so that the whole team runs the same version until the `package.json` file is updated.
+
+In all those cases, versioning helps a lot, and `npm` follows the semantic versioning (semver) standard.
+
+The `package.json` file also supports a format for specifying command-line tasks
+that can be run by using the `npm run ...` syntax.
+
+For example, many tools use the `npm run dev` to offer a quick way 
+to get the development version up and running locally, 
+and `npm run build` to create the production build.

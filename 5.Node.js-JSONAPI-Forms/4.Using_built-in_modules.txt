@@ -1,0 +1,18 @@
+Node comes with many built-in modules, such as 'fs', 'path', 'os'.
+
+The `fs` module provides a lot of very useful functionality 
+to access and interact with the file system.
+There is no need to install it. Being part of the Node core, it can be used by requiring it:
+    const fs = require('fs')
+
+The particular thing about built-in modules is that no need to install them as 3rd party node modules, 
+just require it and will have access to the functionality it provides.
+
+So with requiring 'fs', you have access to all its methods:
+    - `fs.copyFile()`: copies a file
+    - `fs.mkdir()`: create a new folder
+    - `fs.readFile()`: read the content of a file
+    - `fs.rename()`: rename a file or folder
+    - `fs.rmdir()`: remove a folder
+    - ...and many more.
+
