@@ -3,28 +3,28 @@
 <!DOCTYPE html>
 <html>
     <head>
-        
+        <script src="https://cdn.tailwindcss.com"></script>
     </head>
 
     <body>
         <form>
             <input type="text" name="username" id="username" />
         </form>
-        <form action="/test" method="POST" >
+        <form action="/test" method="POST" class="w-1/2 mx-auto mt-10 text-center" >
             <div>
-                <label for="name">Name</label>
-                <input name="name" id="name" required />
+                <label class="block mb-3">Name</label>
+                <input class="w-full p-2 mb-3 border border-gray-400 border-solid" name="name" id="name" required />
             </div>
             <div>
-                <label for="email">Email address</label>
-                <input type="email" id="email" name="email" required />
+                <label class="block mb-3">Email address</label>
+                <input class="w-full p-2 mb-3 border border-gray-400 border-solid" type="email" id="email" name="email" required />
             </div>
             <div>
-                <label for="notes">Notes</label>
-                <textarea id="notes" rows="3" placeholder="Please tell us more about yourself..."></textarea>
+                <label class="block mb-3">Notes</label>
+                <textarea class="w-full p-3 border border-gray-400" rows="3" placeholder="Tell us more about yourself..."></textarea>
             </div>
             <div>
-                <button type="submit">Save</button>
+                <button type="submit" class="p-3 pl-5 pr-5 mt-5 text-white bg-green-500 rounded-lg">Save</button>
             </div>
         </form>
         <script defer src="form.js"></script>
@@ -36,7 +36,7 @@ Note that some fields have the required attribute.
 If you click the "Save" button, the browser will tell you that the field was not filled, 
 and will not submit the form until you provide a value. 
 
-This is called **frontend** **validation**.
+This is called frontend validation.
 
 Forms are an extremely important part of HTML and the Web Platform.
 They allow users can interact with the page and
@@ -45,4 +45,24 @@ They allow users can interact with the page and
     - trigger filters to trim result pages
     - send information
 and much much more.
+-->
+
+<!--
+Adding some styling with Tailwind, adding classes to the HTML.
+    - `mx-auto` centers by setting the left and right margins to `auto`
+    - `text-center` centers the text
+    - `mt-n` sets the margin-top value, the higher the value, the more the result
+    - `mb-n` sets the `margin-bottom` property
+    - `w-1/2` sets `width: 50%`
+    - `block` sets `display: block`
+    - `w-full` sets `width: 100%`
+    - `border` sets `border: 1px` to make the border visible
+    - `border-gray-400` sets the color of the border to the specified color (gray) with intensity 400
+    - `border-solid` sets the border to be `border-style: solid`
+    - `p-n` sets the padding
+    - `pr-n` sets the `padding-right`
+    - `pl-n` sets the `padding-left`
+    - `bg-green-500` sets the background color to green with intensity 500
+    - `text-white` sets the color of the text to white
+    - `rounded-lg` sets the `border-radius` value
 -->
