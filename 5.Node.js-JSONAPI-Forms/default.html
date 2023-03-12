@@ -1,0 +1,38 @@
+<!--
+    Handling form submission with JavaScript
+
+    One special form input field with type="submit" shows a button 
+    that once clicked will send the form data to the server.
+
+    By default, forms submit their content to a server-side endpoint, 
+    which by default is the page URL itself.
+
+    We can override this behavior by setting the action attribute of the form element, 
+    using the HTML method defined by the method attribute, which defaults to GET:
+
+    Upon clicking the submit input element, the browser makes a POST request 
+    to the `/contact` URL on the same origin (protocol, domain, and port).
+-->
+
+<!DOCTYPE html>
+<html>
+    <head>
+        <script>
+            document.addEventListener('DOMContentLoaded', () => {
+                const form = document.querySelector('form')
+                form.addEventListener('submit', event => {
+                    // submit event detected
+                    event.preventDefault()
+                    alert('form submit event!')
+                })
+            })
+        </script>
+    </head>
+
+    <body>
+        <form action="/contact" method="POST">
+            <input type="text" name="username" />
+            <input type="submit"/>
+        </form>
+    </body>
+</html>
