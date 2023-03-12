@@ -15,4 +15,3 @@ So with requiring 'fs', you have access to all its methods:
     - `fs.rename()`: rename a file or folder
     - `fs.rmdir()`: remove a folder
     - ...and many more.
-

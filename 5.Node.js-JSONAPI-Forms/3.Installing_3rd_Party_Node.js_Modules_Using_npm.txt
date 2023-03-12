@@ -22,10 +22,10 @@ To require this module into program, create an app.js file and add:
 
 Then run it with node app.js inside the terminal.
 
-If you get an error, there are 2 ways to fix it:
+If you get an error, there are 3 ways to fix it:
     1. Rename the app.js file as app.cjs and run node app.cjs inside the terminal (cjs means common js)
     2. Use import instead. This file is being treated as an ES module because it has a '.js' file extension
-       Remove the "type": "module" line from package.json file as that enables ES modules syntax instead of require()
+    3. Remove the "type": "module" line from package.json file as that enables ES modules syntax
 
 Instead of reinventing the wheel all the time, we can use the written code by people and organizations, to make our life easier.
     npm install <package>
