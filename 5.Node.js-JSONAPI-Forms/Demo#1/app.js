@@ -1,9 +1,12 @@
-// Wrapping all the code into DOM:
-document.addEventListener("DOMContentLoaded", () => {
-    const form = document.querySelector("form")
-    form.addEventListener("submit", (event) => {
+// Wrapping all the code inside DOM:
+document.addEventListener('DOMContentLoaded', () => {
+    const form = document.querySelector('form')
+    form.addEventListener('submit', async (event) => {
         event.preventDefault()
         const username = document.querySelector('input').value
-        alert(username)
+        
+        const response = await fetch(`https://api.github.com/users/${username}`)
+        const data = await response.json()
+        console.log(data)
     })
 })
