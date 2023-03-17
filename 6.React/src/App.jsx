@@ -46,17 +46,98 @@ export default App
 
 
 
-// function WelcomeMessage() {
-//   return <h1>Welcome!</h1>
-// }
+/*
+function WelcomeMessage() {
+  return <h1>Welcome!</h1>
+}
 
-// function App() {
-//   return (
-//     <div className='App'>
-//       <WelcomeMessage />
-//     </div>
-//   )
-// }
+function App() {
+  return (
+    <div className='App'>
+      <WelcomeMessage />
+    </div>
+  )
+}
 
-// export default App
-// OUTPUT WILL BE A BIG 'WELCOME!' ON THE WEB PAGE
+export default App
+
+OUTPUT WILL BE A BIG 'Welcome!' ON THE WEB PAGE
+
+
+
+
+Let's do another example. Suppose the App component has a variable called message.
+We can print this value in the JSX by adding {message} anywhere in the JSX.
+import './App.css'
+
+function App() {
+  const message = 'Hello!'
+
+  return (
+    <div className='App'>
+      <h1>{message}</h1>
+      Inside the curly brackets { } we can add any JavaScript statement.
+    </div>
+  )
+}
+
+export default App
+
+OUTPUT WILL BE A BIG 'Hello!' ON THE WEB PAGE
+
+
+
+
+We have a ternary operator where we define a condition (message === 'Hello!'), 
+and we print one value if the condition is true, 
+or another value (the content of message in this case) if the condition is false:
+import './App.css'
+
+function App() {
+  const message = 'Hello!'
+
+  return (
+    <div className='App'>
+      <h1>{message === 'Hello!' ? 'The message was "Hello!"' : message}</h1>
+    </div>
+  )
+}
+
+export default App
+
+OUTPUT WILL BE - The message was "Hello!" - ON THE WEB PAGE
+If we change const message = 'Bonjour!' then, according to the condition, output will be Bonjour!
+*/
+
+
+
+
+/* 
+React provides an easy way to manage events fired from DOM events like clicks, form events and more.
+Click events:
+      <button
+        onClick={(event) => {
+          * handle the event *
+        }}
+      >
+        Click here
+      </button>
+
+When the element is clicked, the function passed to the onClick attribute is fired.
+You can also define this function outside of the JSX:
+        const handleClickEvent = (event) => {
+          * handle the event *
+        }
+
+        function App() {
+          return <button onClick={handleClickEvent}>Click here</button>
+        }
+
+When the click event is fired on the button, React calls the event handler function.
+React supports a vast amount of types of events
+  + onKeyUp, 
+  + onFocus, 
+  + onChange, 
+  + onMouseDown, 
+  + onSubmit, and many more.
+*/
