@@ -12,11 +12,43 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+function WelcomeMessage() {
+  return <span>Welcome </span>
+}
+
+function GoodbyeMessage() {
+  return <span>Goodbye </span>
+}
+
+function WriteEfes() {
+  return <span>Efes</span>
+}
+
+function WriteBoncuk() {
+  return <span>Boncuk</span>
+}
+
 function App() {
   const [count, setCount] = useState(0)
 
-  return (
+  const [name, setName] = useState("")
+
+  const changeUser = () => {
+    if (name === 'Efes') {
+      setName("Boncuk")
+    } else {
+      setName("Efes")
+    }
+  }
+
+  return ( 
     <div className="App">
+      <WelcomeMessage/>
+      {
+        name === 'Efes' ?
+        <WriteEfes/> :
+        <WriteBoncuk/>
+      }
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -30,6 +62,9 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <button onClick={changeUser}>
+          Change User
+        </button>
         <p>
           Edit <code>src/App.jsx</code> and save to test HMR
         </p>
@@ -37,6 +72,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
+      <GoodbyeMessage/>
+      {
+        name === 'Efes' ?
+        <WriteEfes/> :
+        <WriteBoncuk/>
+      }
     </div>
   )
 }
@@ -47,26 +88,7 @@ export default App
 
 
 /*
-function WelcomeMessage() {
-  return <h1>Welcome!</h1>
-}
-
-function App() {
-  return (
-    <div className='App'>
-      <WelcomeMessage />
-    </div>
-  )
-}
-
-export default App
-
-OUTPUT WILL BE A BIG 'Welcome!' ON THE WEB PAGE
-
-
-
-
-Let's do another example. Suppose the App component has a variable called message.
+Let's say the App component has a variable called message.
 We can print this value in the JSX by adding {message} anywhere in the JSX.
 import './App.css'
 
@@ -76,7 +98,7 @@ function App() {
   return (
     <div className='App'>
       <h1>{message}</h1>
-      Inside the curly brackets { } we can add any JavaScript statement.
+      // Inside the curly brackets { } we can add any JavaScript statement.
     </div>
   )
 }
@@ -91,6 +113,7 @@ OUTPUT WILL BE A BIG 'Hello!' ON THE WEB PAGE
 We have a ternary operator where we define a condition (message === 'Hello!'), 
 and we print one value if the condition is true, 
 or another value (the content of message in this case) if the condition is false:
+
 import './App.css'
 
 function App() {
