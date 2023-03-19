@@ -102,6 +102,7 @@ export default App
 
 
 
+
 /*
 Let's say the App component has a variable called message.
 We can print this value in the JSX by adding {message} anywhere in the JSX.
@@ -178,4 +179,74 @@ React supports a vast amount of types of events
   + onChange, 
   + onMouseDown, 
   + onSubmit, and many more.
+*/
+
+
+
+
+/*
+Forms are one of the few HTML elements that are interactive by default.
+They were designed to allow the user to interact with a page.
+
+Common uses of forms
+  - Search
+  - Contact forms
+  - Shopping carts checkout
+  - Login and registration
+  - and more!
+
+Using React can make forms much more interactive and less static.
+
+Creating forms in React and creating forms in HTLM are the same, 
+we build a form by creating JSX elements. 
+The difference with React is how we manage the value entered in the form: 
+we associate it to a state variable defined with useState, 
+and once it’s time to send the form data to the server, 
+we use this state variable instead of looking up the value from the DOM.
+*/
+// export default function Form() {
+//   const [username, setUsername] = useState('')
+
+//   // We use onSubmit attribute on the form to call the handleSubmit method when the form is submitted:
+//   const handleSubmit = async (event) => {
+//     event.prerventDefault()
+
+//     const response = await fetch('/api/form', {
+//       body: JSON.stringify({
+//         username,
+//       }),
+//       headers: {
+//         'Content-Type': 'application/json',
+//       },
+//       method: 'POST',
+//     })
+//   }
+
+//   return (
+//     <form onSubmit={handleSubmit}>
+//       Username: 
+//       <input
+//         type='text'
+//         value={username}
+//         // When an element state changes in a form field managed by a component, use onChange attribute to track it.
+//         onChange={(event) => {
+//           setUsername(event.target.value)
+//         }}
+//       />
+//     </form>
+//   )
+// }
+/*
+event.preventDefault() in the form submit handler is needed 
+so the browser does not perform the default form submit behavior 
+which is to do a GET request to the same URL the page is on (ultimately this means just reloading the page).
+
+Validation in a form can be handled in the onChange event handler, 
+where you have access to the old value of the state and the new one. 
+You can check the new value and if not valid reject the updated value (and communicate it in some way to the user). 
+And you can also do validation in the onSubmit event handler.
+
+For example, you can check the fields were filled with data you interpret to be valid.
+
+Once you’re ready to send the data, you can use a `fetch` request to a POST API endpoint:
 */
