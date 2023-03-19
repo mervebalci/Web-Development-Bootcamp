@@ -12,43 +12,57 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
-function WelcomeMessage() {
-  return <span>Welcome </span>
+function WelcomeMessage({pet, children}) {
+  console.log(pet)
+  return <span>{children} {pet.name} aged: {pet.age}</span>
 }
 
 function GoodbyeMessage() {
   return <span>Goodbye </span>
 }
 
-function WriteEfes() {
-  return <span>Efes</span>
-}
+// function WriteEfes() {
+//   return <span>Efes</span>
+// }
 
-function WriteBoncuk() {
-  return <span>Boncuk</span>
-}
+// function WriteBoncuk() {
+//   return <span>Boncuk</span>
+// }
 
 function App() {
   const [count, setCount] = useState(0)
 
   const [name, setName] = useState("")
 
+
+  const efes = {
+    name: "Efes",
+    age: 4
+  }
+
+  const boncuk = {
+    name: "Boncuk",
+    age: 10
+  }
+
+  const [pet, setPet] = useState(efes)
+
   const changeUser = () => {
-    if (name === 'Efes') {
-      setName("Boncuk")
+    if (pet.name === 'Efes') {
+      setPet(boncuk)
     } else {
-      setName("Efes")
+      setPet(efes)
     }
   }
 
   return ( 
     <div className="App">
-      <WelcomeMessage/>
-      {
+      <WelcomeMessage pet={pet}>Hosgeldin</WelcomeMessage>
+      {/* {
         name === 'Efes' ?
         <WriteEfes/> :
         <WriteBoncuk/>
-      }
+      } */}
       <div>
         <a href="https://vitejs.dev" target="_blank">
           <img src={viteLogo} className="logo" alt="Vite logo" />
@@ -72,12 +86,12 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      <GoodbyeMessage/>
+      {/* <GoodbyeMessage/>
       {
         name === 'Efes' ?
         <WriteEfes/> :
         <WriteBoncuk/>
-      }
+      } */}
     </div>
   )
 }
