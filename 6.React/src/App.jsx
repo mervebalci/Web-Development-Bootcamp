@@ -14,11 +14,11 @@ import './App.css'
 
 function WelcomeMessage({pet, children}) {
   console.log(pet)
-  return <span>{children} {pet.name} aged: {pet.age}</span>
+  return <h2>{children} {pet.name} age: {pet.age}</h2>
 }
 
-function GoodbyeMessage() {
-  return <span>Goodbye </span>
+function GoodbyeMessage({pet}) {
+  return <h2>Goodbye {pet.name}</h2>
 }
 
 // function WriteEfes() {
@@ -46,6 +46,7 @@ function App() {
   }
 
   const [pet, setPet] = useState(efes)
+
 
   const changeUser = () => {
     if (pet.name === 'Efes') {
@@ -86,8 +87,8 @@ function App() {
       <p className="read-the-docs">
         Click on the Vite and React logos to learn more
       </p>
-      {/* <GoodbyeMessage/>
-      {
+      <GoodbyeMessage pet={pet}></GoodbyeMessage>
+      {/* {
         name === 'Efes' ?
         <WriteEfes/> :
         <WriteBoncuk/>
