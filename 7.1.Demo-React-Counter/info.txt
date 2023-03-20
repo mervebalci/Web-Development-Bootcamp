@@ -1,0 +1,6 @@
+DEMO #1 - COUNTER
+
+In this demo, we’ll build a very simple example of a counter.
+We are going to have a simple web page with 4 buttons, and a place where we show the count.
+The count starts at zero, and the buttons we'll add will increment the count by 1, 10, 100, or 1000 depending on which button is pressed.
+We're going to associate one of these values with a button, and we will show it in the button text.
