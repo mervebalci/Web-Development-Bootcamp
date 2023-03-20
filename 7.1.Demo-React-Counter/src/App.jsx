@@ -13,13 +13,22 @@ function App() {
     setCount(count + step)
   }
 
+  const reset = (step) => {
+    setCount(0)
+  }
+
   return (
-    <div className='App'>
-      <h1>Counter: {count}</h1>
-      <Button step={1} increment={increment} />
-      <Button step={10} increment={increment} />
-      <Button step={100} increment={increment} />
-      <Button step={1000} increment={increment} />
+    <div>
+      <div className='App'>
+        <h1>Counter: {count}</h1>
+        <Button step={1} functionality={increment}>+1</Button>
+        <Button step={10} functionality={increment}>+10</Button>
+        <Button step={100} functionality={increment}>+100</Button>
+        <Button step={1000} functionality={increment}>+1000</Button>
+      </div>
+      <div>
+        <Button functionality={reset}>Reset</Button>
+      </div>
     </div>
   )
 }

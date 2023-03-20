@@ -18,14 +18,14 @@ Then import this Button.jsx file in src/App.jsx and add the component to the JSX
 // Then, to add the functionality which is changing the count by clicking the buttons, need to add increment prop. 
 // We pass that to the Button component, and we use onClick event handler that intercepts automatically the clicks made on the button.
 // It calls callback function that calls increment() passing the step value, which will be 1, 10 or 100 in our case:
-function Button({ step, increment }) {
+function Button({ step, functionality, children }) {
 
   return (
     <button 
       onClick={() => {
-        increment(step)
+        functionality(step)
       }}>
-      +{step}
+      {children}
     </button>
   )
 }
