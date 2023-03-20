@@ -13,7 +13,11 @@ function App() {
     setCount(count + step)
   }
 
-  const reset = (step) => {
+  const decrement = (step) => {
+    setCount(count - step)
+  }
+
+  const reset = () => {
     setCount(0)
   }
 
@@ -25,6 +29,12 @@ function App() {
         <Button step={10} functionality={increment}>+10</Button>
         <Button step={100} functionality={increment}>+100</Button>
         <Button step={1000} functionality={increment}>+1000</Button>
+      </div>
+      <div>
+        <Button step={1} functionality={decrement}>-1</Button>
+        <Button step={10} functionality={decrement}>-10</Button>
+        <Button step={100} functionality={decrement}>-100</Button>
+        <Button step={1000} functionality={decrement}>-1000</Button>
       </div>
       <div>
         <Button functionality={reset}>Reset</Button>
