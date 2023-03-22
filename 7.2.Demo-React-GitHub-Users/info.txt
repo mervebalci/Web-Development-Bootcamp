@@ -1,0 +1,8 @@
+Previously, we worked on a demo project that used the DOM API to ask GitHub for a user’s data.
+We’ll do the same project, but this time instead of using the DOM API we’ll use React.
+
+We will
+    - create a form
+    - wait for the user to type in a GitHub username
+    - ask the GitHub API for the user's public information
+    - show a nice user card.
