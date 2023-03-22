@@ -1,14 +1,39 @@
+/*
+Now we can import the Form component into the App component, the main component of the application.
+
+Remember that in the Form component, we require a `onSubmit` prop.
+We must pass a function to this prop so that we can add the new card to the list of cards.
+
+Where is the list of cards maintained? In the App component state.
+
+So we first include useState, so we can use hooks, and we call it to generate the array of cards.
+We initialize the state property to `[]`, an empty array.
+
+We add it to `App`, passing a method to add a new card to the list of cards, `addNewCard`, as its `onSubmit` prop:
+*/
+
 import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
-import './App.css'
+import Form from './components/Form'
+import CardList from './components/CardList'
 
 function App() {
-  const [count, setCount] = useState(0)
+  const [cards, setCards] = useState([])
+
+
+  // When addNewCard is called, we are getting the information in its only parameter, card. 
+  // We can call setCards(), passing a new array of cards that concatenates the old card's data, 
+  // and the new card:
+  const addNewCard = (card) => {
+    setCards([...cards, card])
+  }
 
   return (
     <div>
-      <p className="text-blue-500">Hello, World!</p>
+      <h1 className='pt-10 text-center mt-6 text-3xl leading-9 font-extrabold text-gray-900'>
+        Search a GitHub User
+      </h1>
+      <Form onSubmit={addNewCard} />
+      <CardList cards={cards} />
     </div>
   )
 }
