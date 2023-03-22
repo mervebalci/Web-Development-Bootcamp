@@ -1,0 +1,14 @@
+Demo #3 - TRACK YOUR BILLS
+
+In this module, we're going to build a bill tracker application.
+
+Every month you get a few bills (rent, internet, electricity, gas) 
+and our goal here is to make a cool application that keeps track of them, written using React.
+
+Here’s how the app will work:
+    - When the app opens for the first time, it asks you to add your first bill category, like Electricity or Heating
+    - After you add a category name, you can add your first bill for that category.
+    - You add a few, then you can see all the bills together.
+    - You can remove bills by clicking the `x` next to each one.
+    - You can also add new categories by pressing the `+` button on the top right, 
+      and clicking one category in the navigation filters bills by category

@@ -1,3 +1,5 @@
+DEMO #2 - GITHUB USERS
+
 Previously, we worked on a demo project that used the DOM API to ask GitHub for a user’s data.
 We’ll do the same project, but this time instead of using the DOM API we’ll use React.
 
