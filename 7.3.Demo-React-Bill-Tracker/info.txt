@@ -12,3 +12,10 @@ Here’s how the app will work:
     - You can remove bills by clicking the `x` next to each one.
     - You can also add new categories by pressing the `+` button on the top right, 
       and clicking one category in the navigation filters bills by category
+
+
+We will need:
+  1. One component to enter a new category - AddCategory
+  2. One component to display the categories list on top - NavBar
+  3. One component to list the bills table - BillsTable
+  4. One component to add a new bill - AddBill
