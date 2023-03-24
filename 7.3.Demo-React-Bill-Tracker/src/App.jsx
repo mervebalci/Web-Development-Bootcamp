@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import AddBill from './components/AddBill'
 import AddCategory from './components/AddCategory'
 import BillsTable from './components/BillsTable'
@@ -22,7 +22,7 @@ function App() {
     }
 
     if (!categoriesInLocalStorage) {
-      setShouldShowAddCategory(true)
+      setShowAddCategory(true)
     }
   }, [])
   // If you add a console.log() in the useEffect() callback you'll notice this function continuously runs,
