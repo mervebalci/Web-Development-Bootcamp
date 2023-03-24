@@ -5,8 +5,7 @@ import BillsTable from './components/BillsTable'
 import NavBar from './components/NavBar'
 
 function App() {
-  const [showAddCategory, setShowAddCategory] = useState(false)
-
+  const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false)
   const [categories, setCategories] = useState([])
 
   // In addition to storing the data, we also need to retrieve it when the application starts.
@@ -22,7 +21,7 @@ function App() {
     }
 
     if (!categoriesInLocalStorage) {
-      setShowAddCategory(true)
+      setShouldShowAddCategory(true)
     }
   }, [])
   // If you add a console.log() in the useEffect() callback you'll notice this function continuously runs,
@@ -30,6 +29,10 @@ function App() {
   // The useEffect() hook is called on component mount, and on component update. 
   // We need to add a second argument to useEffect, an empty array, to only run our effect on mount.
   // Finally, we default the value of showAddCategory to false. Otherwise we'd always see the "add category" screen first.
+
+  const showAddCategory = () => {
+    setShouldShowAddCategory(true)
+  }
 
   const addCategory = (category) => {
     const updatedCategories = [...(categories || []), category]
@@ -40,7 +43,7 @@ function App() {
     // because the category was not persisted anywhere.
     // Let's save the category to local storage.
     localStorage.setItem('categories', JSON.stringify(updatedCategories))
-    setShowAddCategory(false)
+    setShouldShowAddCategory(false)
   }
   // the [...(categories || []), category] construct allows us to create a new array 
   // from the existing categories, appending a new one. 
@@ -49,13 +52,13 @@ function App() {
 
   // Now add a onSubmit prop to the AddCategory component in the App component JSX, 
   // passing the addCategory function to it, 
-  // so when the user submits the form, this function will be called 
+  // so when the user submits the form, this function will be called
 
   return (
     <div>
       {showAddCategory ? (<AddCategory onSubmit={addCategory} />) : (
         <div>
-          <NavBar />
+          <NavBar categories={categories} showAddCategory={showAddCategory} />
           <BillsTable />
         </div>
       )}
