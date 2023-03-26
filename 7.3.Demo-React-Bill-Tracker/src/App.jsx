@@ -6,7 +6,9 @@ import NavBar from './components/NavBar'
 
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false)
+  const [shouldShowAddBill, setShouldShowAddBill] = useState(true)
   const [categories, setCategories] = useState([])
+  const [bills, setBills] = useState([])
 
   // In addition to storing the data, we also need to retrieve it when the application starts.
   // To do that, we use the Effect hook.
@@ -14,14 +16,17 @@ function App() {
     const categoriesInLocalStorage = JSON.parse(
       localStorage.getItem('categories')
     )
-    console.log(categoriesInLocalStorage)
-
-    if (categoriesInLocalStorage !== categories) {
-      setCategories(categoriesInLocalStorage)
-    }
-
+    const billsInLocalStorage = JSON.parse(localStorage.getItem('bills'))
+  
+    setCategories(categoriesInLocalStorage)
+    setBills(billsInLocalStorage)
+  
     if (!categoriesInLocalStorage) {
       setShouldShowAddCategory(true)
+    }
+  
+    if (!billsInLocalStorage) {
+      setShouldShowAddBill(true)
     }
   }, [])
   // If you add a console.log() in the useEffect() callback you'll notice this function continuously runs,
@@ -32,6 +37,10 @@ function App() {
 
   const showAddCategory = () => {
     setShouldShowAddCategory(true)
+  }
+
+  const showAddBill = () => {
+    setShouldShowAddBill(true)
   }
 
   const addCategory = (category) => {
@@ -54,12 +63,31 @@ function App() {
   // passing the addCategory function to it, 
   // so when the user submits the form, this function will be called
 
+  const addBill = (amount, category, date) => {
+    const bill = { amount, category, date }
+    const updatedBills = [...(bills || []), bill]
+    setBills(updatedBills)
+    setShouldShowAddBill(false)
+    localStorage.setItem('bills', JSON.stringify(updatedBills))
+  }
+
   return (
-    <div>
-      {showAddCategory ? (<AddCategory onSubmit={addCategory} />) : (
+    <div className="App">
+      {shouldShowAddCategory ? (
+        <AddCategory onSubmit={addCategory} />
+      ) : shouldShowAddBill ? (
+        <AddBill onSubmit={addBill} categories={categories} />
+      ) : (
         <div>
           <NavBar categories={categories} showAddCategory={showAddCategory} />
-          <BillsTable />
+          <div className="container flex">
+            <div className="w-1/2">
+              <BillsTable />
+            </div>
+            {/* <div className="w-1/2">
+              <Chart />
+            </div> */}
+          </div>
         </div>
       )}
     </div>
