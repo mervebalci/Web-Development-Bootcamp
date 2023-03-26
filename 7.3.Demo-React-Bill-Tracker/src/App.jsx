@@ -6,7 +6,7 @@ import NavBar from './components/NavBar'
 
 function App() {
   const [shouldShowAddCategory, setShouldShowAddCategory] = useState(false)
-  const [shouldShowAddBill, setShouldShowAddBill] = useState(true)
+  const [shouldShowAddBill, setShouldShowAddBill] = useState(false)
   const [categories, setCategories] = useState([])
   const [bills, setBills] = useState([])
 
@@ -82,7 +82,7 @@ function App() {
           <NavBar categories={categories} showAddCategory={showAddCategory} />
           <div className="container flex">
             <div className="w-1/2">
-              <BillsTable />
+              <BillsTable bills={bills} showAddBill={showAddBill} />
             </div>
             {/* <div className="w-1/2">
               <Chart />
