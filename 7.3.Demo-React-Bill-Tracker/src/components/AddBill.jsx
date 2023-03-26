@@ -8,8 +8,10 @@ function AddBill(props) {
   const [date, setDate] = useState(new Date())
 
   const handleChangeAmount = (e) => {
-    setAmount(parseInt(e.target.value), 10)
-  }
+    let newAmount = parseInt(e.target.value, 10)
+    if (isNaN(newAmount)) newAmount = ''
+    setAmount(newAmount)
+    }
 
   const handleSubmit = (e) => {
     e.preventDefault()

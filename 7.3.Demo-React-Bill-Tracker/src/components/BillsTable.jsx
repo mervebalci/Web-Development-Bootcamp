@@ -3,6 +3,10 @@ function BillsTable(props) {
         props.showAddBill()
     }
 
+    const removeBill = index => {
+        props.removeBill(index)
+    }
+
     return (
       <table className='table w-full'>
         <thead>
@@ -20,6 +24,9 @@ function BillsTable(props) {
                 <td>{new Date(value.date).toLocaleDateString()}</td>
                 <td>${value.amount}</td>
                 <td>{value.category}</td>
+                <td>
+                  <button onClick={() => removeBill(index)}>𝗫</button>
+                </td>
               </tr>
             )
           })}

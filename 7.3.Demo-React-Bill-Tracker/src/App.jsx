@@ -9,6 +9,7 @@ function App() {
   const [shouldShowAddBill, setShouldShowAddBill] = useState(false)
   const [categories, setCategories] = useState([])
   const [bills, setBills] = useState([])
+  const [activeCategory, setActiveCategory] = useState('')
 
   // In addition to storing the data, we also need to retrieve it when the application starts.
   // To do that, we use the Effect hook.
@@ -71,6 +72,27 @@ function App() {
     localStorage.setItem('bills', JSON.stringify(updatedBills))
   }
 
+  const removeBill = index => {
+    let updatedBills = [...bills]
+    updatedBills = updatedBills
+      .slice(0, index)
+      .concat(updatedBills.slice(index + 1, updatedBills.length))
+    setBills(updatedBills)
+    localStorage.setItem('bills', JSON.stringify(updatedBills))
+  }
+
+  const activeBills = () => {
+    return bills
+      ?.filter(bill =>
+        activeCategory ? bill.category === activeCategory : true
+      )
+      .sort((a, b) => (new Date(a.date) < new Date(b.date) ? 1 : -1))
+  }
+
+  const setNewActiveCategory = index => {
+    setActiveCategory(index)
+  }
+
   return (
     <div className="App">
       {shouldShowAddCategory ? (
@@ -79,10 +101,19 @@ function App() {
         <AddBill onSubmit={addBill} categories={categories} />
       ) : (
         <div>
-          <NavBar categories={categories} showAddCategory={showAddCategory} />
+          <NavBar
+            categories={categories}
+            showAddCategory={showAddCategory}
+            activeCategory={activeCategory}
+            setNewActiveCategory={setNewActiveCategory}
+          />
           <div className="container flex">
             <div className="w-1/2">
-              <BillsTable bills={bills} showAddBill={showAddBill} />
+            <BillsTable
+              bills={activeBills()}
+              showAddBill={showAddBill}
+              removeBill={removeBill}
+            />
             </div>
             {/* <div className="w-1/2">
               <Chart />
