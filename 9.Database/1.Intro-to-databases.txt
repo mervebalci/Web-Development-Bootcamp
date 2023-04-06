@@ -1,0 +1,88 @@
+A database is a collection of information carefully organized into a system.
+Think about a list of people and their age and email.
+Or a list of blog posts with their title and content.
+
+We call DBMS (= DataBase Management System) the software that lets us manage a database and access its data.
+A DBMS manages the data of a database and provides us a way to store it, retrieve it, edit it, persist it to disk, and much more.
+
+Common database management software is PostgreSQL, MySQL, SQLite and so on. 
+
+A DBMS must:
+    * be efficient: a database needs to provide the best performance to store and retrieve data.
+    * be persistent: data stored in the database is stored permanently.
+        When the database software is terminated or the machine reboots,
+        the data (excluding hardware failures) should still be there.
+    * provide privacy and security: a database provides us the ability to privately and securely store data.
+        It allows access to multiple users, and each user should be able to only access and edit the data it's allowed to.
+        Some users might only be able to access data and not edit or delete it.
+    * provide shared access: multiple users need to be able, with the proper permissions, to access shared data.
+        Multiple applications can access the same database, too.
+    * manage lots of data: a database can handle huge amounts of data, and it can scale according to your needs, using various advanced techniques.
+        That does not mean a database is just useful when you have a lot of data - it can be useful even with very few data entries, due to the properties listed above.
+
+
+
+
+Do you always need a database for your project, website or app? Of course not.
+Many times you don't even need to store data.
+But if you need to store data, you have various solutions.
+As with everything in technology, nothing is ideal in every situation.
+
+Computers offer many various ways to store data. The most obvious alternative is files.
+A common example is a Content Management System (CMS). 
+Most CMS use a database to store data (think WordPress), some others prefer to store data using files (think Grav or Statamic).
+Not using a database in that case means a simpler deploy to a hosting service, because having a database is an overhead. 
+It’s a separate system, you need to manage backups, perhaps have different versions for development and production, etc.
+
+But when handling lots of data, a database is definitely a great way to simplify your life in the long term.
+As always, it's all a balance of complexity vs convenience.
+
+
+
+
+    # Different kinds of databases
+We have SQL databases, that follow the relational model.
+And we have NoSQL databases that don’t use a relational model.
+
+SQL databases allow you to add and retrieve data using a specific language, called SQL, that looks like this:
+    INSERT INTO cars VALUES (fiesta, 2010)
+
+    SELECT * FROM cars
+
+In this example, the first line inserts a set of values into the cars table.
+The second line retrieves the records from that table.
+
+SQL is rather old, being born in 1986, and it's a battle-tested technology.
+And one that’s very flexible and allows a great potential for your app.
+
+SQL-based relational databases include PostgreSQL and others like Oracle, MySQL and MariaDB, and cloud offerings like AWS RDS.
+
+
+    # NoSQL databases
+Under the NoSQL umbrella we put all those databases that do not use the SQL language for querying the data.
+They use other formats. Databases of this kind are for example MongoDB and Redis, but also cloud databases like Firebase Firestore.
+
+
+    # What is the right database for you?
+IT DEPENDS. And the perfect fit can only be found through experience.
+I think NoSQL databases have their place, but SQL databases are much more flexible.
+
+
+
+
+    # Relational databases
+Relational databases are based on tables.
+This makes them intuitive to use, because we are used to using tables to organize things.
+
+You might be familiar with Excel or Google Sheets, for example.
+A relational database, at a first glance, is similar.
+
+Data is stored in one or more tables.
+Each table contains one or more columns, that hold data of a specific type, like strings, numbers and so on.
+Each table can define constraints upon the data that each row can contain. 
+For example, we can say that a value must be unique. Only one row can contain that value. 
+We set this rule and the database will take care of enforcing this rule.
+
+Tables can reference each other, forming relationships.
+For example we can say the `car` row with id `1` is owned by the user assigned to id `2` in the table `users`.
+In this way we can link data together and build more complex applications.
