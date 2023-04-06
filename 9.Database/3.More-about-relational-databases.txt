@@ -1,0 +1,85 @@
+    # Null constraints
+When we create a table in this way:
+    CREATE TABLE people (
+      age INT,
+      name CHAR(20)
+    );
+
+SQL freely accepts empty values as records:
+    INSERT INTO people VALUES (null, null);
+
+This might be a problem, because now we have a row with null values:
+To solve this, we can declare constraints on our table rows. NOT NULL prevents null values:
+    CREATE TABLE people (
+      age INT NOT NULL,
+      name CHAR(20) NOT NULL
+    );
+
+If we try to execute this query again:
+    INSERT INTO people VALUES (null, null);
+We'd get an error: "NOT NULL constraints failed: people.age"
+
+This is an example of the DBMS setting boundaries on the data we insert.
+Very helpful to keep the database clean.
+
+
+
+
+    # Unique and primary keys
+With a table created with this command:
+    CREATE TABLE people (
+      age INT NOT NULL,
+      name CHAR(20) NOT NULL
+    );
+
+We can have columns that repeat the same value. The DBMS does not care.
+But, we can force a column to have only unique values using the `UNIQUE` key constraint:
+    CREATE TABLE people (
+      age INT NOT NULL,
+      name CHAR(20) NOT NULL UNIQUE
+    );
+
+Now if you try to add the 'Efes' twice:
+    INSERT INTO people (age, name) VALUES (4, 'Efes');
+    INSERT INTO people (age, name) VALUES (10, 'Efes');
+
+You'd get an error: "UNIQUE constraint failed: people.name"
+
+
+
+A primary key is a unique key that has another property: it's the primary way we identify a row in the table.
+    CREATE TABLE people (
+      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      age INT NOT NULL,
+      name CHAR(20) NOT NULL
+    );
+
+The primary key in this example is a unique id that we assign to each record and we increment it automatically any time we add as new record.
+So when we add an item we can omit its value, because the DBMS knows its value:
+    INSERT INTO people (age, name) VALUES (4, 'Efes');
+    INSERT INTO people (age, name) VALUES (10, 'Boncuk');
+
+id | age |  name
+---+-----+------
+1  | 4  |  'Efes'
+2  | 10 |  'Boncuk'
+
+
+It’s important to define a primary key so:
+    - we always know we can uniquely identify a row in the table
+    - we can create relationships between tables, so a table can reference a row into another table
+    - we can have data integrity and referential integrity (something we’ll not talk about, but it’s important to note)
+    - and last but not least, it’s important for speed, so the database can figure out how to optimize your table
+
+
+
+
+    # Update a table structure
+We can alter an existing table structure using the ALTER TABLE command:
+    ALTER TABLE people ADD COLUMN born_year INT;
+
+We can drop the column:
+    ALTER TABLE people DROP COLUMN born_year;
+
+You can also drop a table entirely with DROP TABLE:
+    DROP TABLE people;

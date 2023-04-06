@@ -1,0 +1,106 @@
+    # Introduction to SQL
+We can interact with relational databases using the SQL language.
+SQL lets us give instructions to 
+    create a database, 
+    define its tables schema,
+    fill tables with data,
+    query the data when needed.
+
+SQL stands for Structured Query Language, it's not really a programming language, 
+but it was born as a language to query the database, and interact with it.
+
+SQL is a huge subject and to complicate it, each database has its own dialect of SQL.
+
+
+
+
+    # Create a table with CREATE TABLE
+A database is composed by one or more tables.
+Creating a table in SQL is done using the `CREATE TABLE` command.
+At creation time you need to specify the table columns names, and the type of data they are going to hold.
+
+This is the syntax to create a `people` table with 2 columns, one an integer and the other a variable length string:
+    CREATE TABLE people (
+      age INT, 
+      name CHAR(20)
+    );
+
+SQL defines several kinds of data.
+The most important and the ones you'll see more often are:
+    - `CHAR`
+    - `TEXT`
+    - `VARCHAR`
+    - `DATE`
+    - `TIME`
+    - `DATETIME`
+    - `TIMESTAMP`
+
+Numeric types include, among others:
+    - `INT` 4 bytes
+    - `BIGINT` 8 bytes
+    - `DECIMAL`
+    - `FLOAT`
+
+They all hold numbers. The bigger the size in bytes, the more space will be needed in storage.
+
+
+
+
+    # Add data to a table with INSERT INTO
+Once you have a table, you can insert data into it.
+You can now start adding data into it with the INSERT INTO command:
+    INSERT INTO people VALUES (20, 'Tony');
+
+You can insert multiple items separating each one with a comma:
+    INSERT INTO people VALUES (57, 'Joe'), (8, 'Ruby');
+
+
+
+
+    # Query data with SELECT
+You can get data out of tables using the `SELECT` command.
+Get all rows and columns:
+    SELECT * FROM people;
+
+This is query.
+
+Get only the name column:
+    SELECT name FROM people;
+
+Count the items in the table:
+    SELECT COUNT(*) from people;
+
+You can filter rows in a table adding the WHERE clause:
+    SELECT age FROM people WHERE name='Tony';
+
+The results of a query can be ordered by column value, ascending (the default) or descending, using ORDER BY:
+    SELECT * FROM people ORDER BY name;
+    SELECT * FROM people ORDER BY name DESC;
+
+Use LIMIT to limit the number of results returned:
+    SELECT * FROM people ORDER BY name DESC LIMIT 2;
+
+
+
+
+    # Deleting data with DELETE FROM
+To remove data from a table, use the `DELETE FROM` command.
+This deletes all rows:
+    DELETE FROM people;
+
+You can use the WHERE clause to only remove specific rows:
+    DELETE FROM people WHERE name='Tony';
+
+To delete a table instead of the data inside the table, use the DROP TABLE command:
+    DROP TABLE people;
+
+
+
+
+    # Updating data with UPDATE
+The data stored in a table can be updated using the UPDATE command:
+    UPDATE people SET age=2 WHERE name='Joe';
+
+It's important to add the WHERE clause, otherwise this instruction:
+    UPDATE people SET age=2;
+would update all the rows in the table.
