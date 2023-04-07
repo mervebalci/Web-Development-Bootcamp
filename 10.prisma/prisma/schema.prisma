@@ -9,3 +9,24 @@ datasource db {
   provider = "sqlite"
   url      = env("DATABASE_URL")
 }
+
+
+// Creating a model... The model is a representation of a database table.
+// Prisma needs to know what fields a table has, and the types of them.
+
+model Car {
+  id         Int      @id @default(autoincrement())
+  brand      String
+  model      String
+  created_at DateTime @default(now())
+  bought     Boolean  @default(false)
+}
+
+// This model defines 5 fields: id, brand, model, created_at, bought, each with its type, be it Int, String, DataTime, or Boolean.
+// `id` has the `@id` attribute which means it's the **primary key**, which tells the database management system to make it unique. 
+// And it defaults to a value that's automatically incremented, so whenever we add one new item, it always have a unique integer number that increments: 1, 2, 3, 4...
+
+// NOTE: all fields are by default mandatory (from SQL, it means NOT NULL).
+// To make a field optional, you can add a '?' after the type, like this:
+// model String?
+// age Int?
